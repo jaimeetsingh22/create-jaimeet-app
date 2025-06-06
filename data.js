@@ -88,14 +88,18 @@ import route from './router/route.js';
 const app = express();    
 
 const PORT = process.env.PORT || 3000;  
-let dbUri = process.env.DB_URI || 'mongodb://localhost:27017/mydatabase';    
+
+// enter your mongodb uri
+let dbUri = null;    
 
 // enter your database name here  
-let dbName = '' || 'testdb';      
+let dbName = null;      
 
 
-// connecting to the database  
+// connecting to the database 
+if(dbName && dbUri){
 await connectToDB(dbUri, dbName);    
+}  
 
 // setting ejs views  
 app.set('view engine','ejs');  
@@ -169,15 +173,19 @@ import route from './router/route.js';
 
 const app = express();    
 
-const PORT = process.env.PORT || 3000;  
-let dbUri = process.env.DB_URI || 'mongodb://localhost:27017/mydatabase';    
+const PORT = process.env.PORT || 3000;
+
+// enter your mongodb uri
+let dbUri = null;    
 
 // enter your database name here  
-let dbName = '' || 'testdb';      
+let dbName = null;      
 
 
-// connecting to the database  
+// connecting to the database 
+if(dbName && dbUri){
 await connectToDB(dbUri, dbName);    
+}
 
 // middlewares here  
 app.use(Middleware)      

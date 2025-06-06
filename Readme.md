@@ -103,10 +103,10 @@ _Dev Dependency:_
 ## 📸 Preview
 
 > CLI Preview  
-![CLI Preview](image.png)
+[CLI Preview](image.png)
 
 > Next Step  
-![Next Step](image-1.png)
+[Next Step](image-1.png)
 
 ---
 

@@ -1,18 +1,43 @@
 {
   "name": "create-jaimeet-app",
-  "version": "1.0.0",
-  "description": "CLI to scaffold Node.js backend with SSR or REST API",
+  "version": "1.0.1",
+  "description": "A CLI to scaffold Node.js backend projects with SSR or REST API using Express.js, made by Jaimeet Singh.",
+  "type": "module",
+  "bin": {
+    "create-jaimeet-app": "./index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
- 
-  "keywords": ["cli", "nodejs", "starter", "jaimeet", "ssr", "api"],
+  "keywords": [
+    "cli",
+    "nodejs",
+    "express",
+    "backend",
+    "starter",
+    "scaffold",
+    "ssr",
+    "api",
+    "rest api",
+    "jaimeet",
+    "jaimeet singh",
+    "create-jaimeet-app",
+    "create app cli",
+    "nodejs cli generator",
+    "express generator",
+    "node backend setup",
+    "backend boilerplate"
+  ],
   "author": "Jaimeet Singh",
   "license": "ISC",
-  "type": "module",
-   "bin": {
-  "create-jaimeet-app": "./index.js"
-},
+  "homepage": "https://www.npmjs.com/package/create-jaimeet-app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaimeetsingh22/create-jaimeet-app"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "dependencies": {
     "chalk": "^5.4.1",
     "chalk-animation": "^2.0.3",
