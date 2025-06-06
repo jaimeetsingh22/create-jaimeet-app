@@ -1,11 +1,8 @@
-Sure! Here's your README formatted properly in markdown, cleaned up and enhanced for clarity and presentation — with a few emojis and structure improvements for readability:
 
-```markdown
 # 🛠️ create-jaimeet-app
 
 A simple and interactive CLI tool to scaffold Node.js applications with either **SSR** or **API-based** backends — built by [Jaimeet Singh](https://github.com/jaimeetsingh22).
 
----
 
 ## ✨ Features
 
@@ -17,7 +14,6 @@ A simple and interactive CLI tool to scaffold Node.js applications with either *
 - 📦 Initializes `npm`, installs dependencies, and sets up scripts
 - 💡 Graceful exit handling on `Ctrl + C` or CLI termination
 
----
 
 ## 🚀 Installation
 
@@ -134,6 +130,6 @@ This project is licensed under the **ISC License**.
 Pull requests and suggestions are welcome!  
 Feel free to **fork** the repo and submit a **PR**.  
 Let’s make open source more fun 🚀
-```
+
 
 Let me know if you want a version with badges (like npm version, license, etc.) or a `CONTRIBUTING.md` template to go with it!
