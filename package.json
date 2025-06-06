@@ -1,0 +1,24 @@
+{
+  "name": "create-jaimeet-app",
+  "version": "1.0.0",
+  "description": "CLI to scaffold Node.js backend with SSR or REST API",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+ 
+  "keywords": ["cli", "nodejs", "starter", "jaimeet", "ssr", "api"],
+  "author": "Jaimeet Singh",
+  "license": "ISC",
+  "type": "module",
+   "bin": {
+  "create-jaimeet-app": "./index.js"
+},
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "chalk-animation": "^2.0.3",
+    "figlet": "^1.8.1",
+    "gradient-string": "^3.0.0",
+    "inquirer": "^12.6.3",
+    "nanospinner": "^1.2.2"
+  }
+}
