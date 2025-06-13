@@ -1,0 +1,58 @@
+{
+  "name": "create-jaimeet-app",
+  "version": "1.0.0",
+  "description": "A beautiful and developer-friendly CLI to set up fullstack or backend Node.js apps with Express, React, MERN, or Next.js. Made with ❤️ by Jaimeet Singh.",
+  "type": "module",
+  "bin": {
+    "create-jaimeet-app": "./bin/index.js"
+  },
+  "scripts": {
+    "start": "node ./bin/index.js",
+    "dev": "node ./bin/index.js"
+  },
+  "keywords": [
+    "cli",
+    "create",
+    "starter",
+    "scaffold",
+    "react",
+    "vite",
+    "nextjs",
+    "mern",
+    "express",
+    "nodejs",
+    "node",
+    "backend",
+    "fullstack",
+    "project generator",
+    "create-jaimeet-app",
+    "jaimeet singh"
+  ],
+  "author": "Jaimeet Singh",
+  "license": "ISC",
+  "homepage": "https://www.npmjs.com/package/create-jaimeet-app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaimeetsingh22/create-jaimeet-app"
+  },
+  "bugs": {
+    "url": "https://github.com/jaimeetsingh22/create-jaimeet-app/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "preferGlobal": true,
+  "files": [
+    "bin/",
+    "src/",
+    "README.md"
+  ],
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "chalk-animation": "^2.0.3",
+    "figlet": "^1.8.1",
+    "gradient-string": "^3.0.0",
+    "inquirer": "^12.6.3",
+    "nanospinner": "^1.2.2"
+  }
+}
