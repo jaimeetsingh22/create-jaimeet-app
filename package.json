@@ -4,7 +4,7 @@
   "description": "A beautiful and developer-friendly CLI to set up fullstack or backend Node.js apps with Express, React, MERN, or Next.js. Made with ❤️ by Jaimeet Singh.",
   "type": "module",
   "bin": {
-    "create-jaimeet-app": "./bin/index.js"
+    "create-jaimeet-app": "bin/index.js"
   },
   "scripts": {
     "start": "node ./bin/index.js",
@@ -33,7 +33,7 @@
   "homepage": "https://www.npmjs.com/package/create-jaimeet-app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaimeetsingh22/create-jaimeet-app"
+    "url": "git+https://github.com/jaimeetsingh22/create-jaimeet-app.git"
   },
   "bugs": {
     "url": "https://github.com/jaimeetsingh22/create-jaimeet-app/issues"
