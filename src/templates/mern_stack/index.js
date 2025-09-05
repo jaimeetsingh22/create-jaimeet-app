@@ -1,21 +1,31 @@
 import { execSync } from "child_process";
-import path from "path";
 import fs from "fs";
+import inquirer from "inquirer";
+import path from "path";
+import { backend_with_API_data } from "../../constants/backendData.js";
+import { askUIFeatures } from "../../prompts/projectType.js";
+import { installDependencies, setupNpm } from "../../utils/installDeps.js";
 import { log, makeSpinner } from "../../utils/logger.js";
-import { askTailwindEnable } from "../../prompts/projectType.js";
-import { backend_with_API_data } from "../../constants/data.js";
-import { setupNpm, installDependencies } from "../../utils/installDeps.js";
-import { setupTailwind } from "../../utils/setupTailwind.js";
-import { autoInstallDeps } from "../../utils/npmInstall.js";
+import { runSetup } from "../../utils/runSetup.js";
+import chalk from "chalk";
 
 export async function generateMERN(projectPath, projectName) {
   const clientPath = path.join(projectPath, "client");
   const serverPath = path.join(projectPath, "server");
 
   // ------------------ CLIENT ------------------
+  console.log(chalk.yellow("\nLet's set up the client (React + Vite) first.\n"));
+  const {isTS} = await inquirer.prompt([
+    {
+      type:"confirm",
+      name:"isTS",
+      message:"Would you like to use TypeScript for the client?",
+      default:false
+    }
+  ]);
   const clientSpinner = makeSpinner("⚛️ Creating client (React + Vite)...").start();
   try {
-    execSync(`npm create vite@latest client -- --template react`, {
+    execSync(`npm create vite@latest client -- --template ${isTS ? "react-ts" : "react"}`, {
       cwd: projectPath,
       stdio: "ignore",
     });
@@ -25,14 +35,9 @@ export async function generateMERN(projectPath, projectName) {
     process.exit(1);
   }
 
-  // Optional Tailwind
-  const enableTailwind = await askTailwindEnable();
-  if (enableTailwind) {
-    await setupTailwind(clientPath);
-  }
+  const features = await askUIFeatures();
 
-  // Install client dependencies (always)
-  await autoInstallDeps(clientPath);
+  await runSetup(clientPath,features,isTS);
 
   // ------------------ SERVER ------------------
   const folders = [
@@ -90,13 +95,13 @@ ${projectName}/
 
   log.info(`📦 Installed & configured:`);
   console.log(`
-✔️  React + Vite (with optional Tailwind)
+✔️  React + Vite (with optional packages)
 ✔️  Express + Mongoose REST API
 ✔️  Nodemon + dotenv + CORS
 `);
 
   log.info(`🚀 To get started:\n`);
   console.log(
-    `  cd ${projectName}/client     # frontend\n  npm run dev\n\n  cd ../server              # backend\n  npm run dev\n`
+    `  cd ${projectName}/client     # frontend\n  npm run dev\n\n  cd ../server           # backend\n  npm run dev\n`
   );
 }

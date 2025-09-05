@@ -42,19 +42,22 @@ inquirer.prompt = ((originalPrompt) => async (questions) => {
   }
 })(inquirer.prompt);
 
+let projectName = "";
 async function runCLI() {
   await welcome();
-  const projectName = await askProjectName();
+  const recievedProjectName = await askProjectName();
+  projectName = recievedProjectName.trim().toLowerCase().replace(/\s+/g, "-");
+  const projectPath = await createProjectFolder(projectName);
+
   const stack = await askProjectType();
 
-  const projectPath = await createProjectFolder(projectName);
 
   switch (stack) {
     case "Next.js ▲":
       await generateNextJS(projectPath, projectName);
       break;
 
-    case "MERN Stack (JavaScript) 🔥":
+    case "MERN Stack 🔥":
       await generateMERN(projectPath, projectName);
       break;
 

@@ -1,6 +1,6 @@
 {
   "name": "create-jaimeet-app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A beautiful and developer-friendly CLI to set up fullstack or backend Node.js apps with Express, React, MERN, or Next.js. Made with ❤️ by Jaimeet Singh.",
   "type": "module",
   "bin": {

@@ -2,9 +2,10 @@ import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 import { makeSpinner, log } from "./logger.js";
-import { uiData } from "../constants/data.js";
+import { uiData } from "../constants/uiData.js";
 
-export async function setupTailwind(projectPath) {
+
+export async function setupTailwind(projectPath,isTS) {
   const spinner = makeSpinner("🎨 Installing Tailwind CSS...").start();
 
   try {
@@ -13,7 +14,7 @@ export async function setupTailwind(projectPath) {
       cwd: projectPath,
       stdio: "inherit",
     });
-    spinner.success({ text: "✅ Tailwind packages installed!" });
+    spinner.success({ text: " Tailwind packages installed! \n" });
 
     // 2. Determine vite config file
     const jsPath = path.join(projectPath, "vite.config.js");
@@ -46,15 +47,15 @@ export async function setupTailwind(projectPath) {
     const cssPath = path.join(projectPath, "src", "index.css");
     const appJsxPath = path.join(projectPath,"src","App.jsx")
     const appTsxPath = path.join(projectPath,"src","App.tsx");
-    fs.writeFileSync(cssPath, `${uiData.indexCss}\n`);
+    fs.writeFileSync(cssPath, `${uiData.tailwind.indexCss}\n`);
 
     if(fs.existsSync(appJsxPath)){
-      fs.writeFileSync(appJsxPath,`${uiData.App}\n`)
+      fs.writeFileSync(appJsxPath,`${uiData.tailwind.App}\n`)
     }else if(fs.existsSync(appTsxPath)){
-      fs.writeFileSync(appTsxPath,`${uiData.App}\n`)
+      fs.writeFileSync(appTsxPath,`${uiData.tailwind.App}\n`)
     }
 
-    log.success("✅ Tailwind CSS setup completed!");
+    log.success("Tailwind CSS setup completed! \n");
   } catch (err) {
     spinner.error({ text: "❌ Tailwind setup failed." });
     log.error(err.message);

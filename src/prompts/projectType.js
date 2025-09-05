@@ -29,7 +29,7 @@ export async function askProjectName() {
       validate: (input) => (input ? true : "Project name cannot be empty."),
     },
   ]);
-  return projectName;
+  return projectName; // it will convert to lowercase and replace spaces with hyphens
 }
 
 export async function askProjectType() {
@@ -40,7 +40,7 @@ export async function askProjectType() {
       message: "🚀 Choose your project type:",
       choices: [
         "Next.js ▲",
-        "MERN Stack (JavaScript) 🔥",
+        "MERN Stack 🔥",
         "React (TypeScript) ⚛",
         "React (JavaScript) ⚛️",
         "Backend with API 🛠️",
@@ -52,14 +52,32 @@ export async function askProjectType() {
   return projectType;
 }
 
-export async function askTailwindEnable() {
-  const { tailwind } = await inquirer.prompt([
+
+
+
+export async function askUIFeatures() {
+  const answers = await inquirer.prompt([
     {
       type: "confirm",
       name: "tailwind",
-      message: "🎨 Do you want to enable Tailwind CSS?",
+      message: "Do you want to enable Tailwind CSS?",
       default: true,
     },
+    {
+      type: "confirm",
+      name: "router",
+      message: "Do you want routing (react-router-dom) enabled with example? (File-based routing will be in next update!)",
+      default: true,
+    },
+    {
+      type: "confirm",
+      name: "redux",
+      message: "Do you want to implement Redux (Redux Toolkit)?",
+      default: false,
+    },
   ]);
-  return tailwind;
+
+  return answers;
 }
+
+

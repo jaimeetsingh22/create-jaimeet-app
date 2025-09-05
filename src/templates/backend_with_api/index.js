@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { backend_with_API_data } from "../../constants/data.js";
+import { backend_with_API_data } from "../../constants/backendData.js";
 import { setupNpm, installDependencies } from "../../utils/installDeps.js";
 import { log } from "../../utils/logger.js";
 
