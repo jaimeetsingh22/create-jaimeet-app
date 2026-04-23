@@ -29,9 +29,10 @@ jobs:
       - name: Run Release Please
         id: release
         uses: googleapis/release-please-action@v4
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         with:
           release-type: node
-          package-name: create-jaimeet-app
 
   publish:
     name: Publish to npm
