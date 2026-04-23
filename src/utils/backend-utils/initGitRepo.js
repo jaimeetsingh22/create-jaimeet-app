@@ -2,7 +2,7 @@
 // Gracefully handles missing git installation
 
 import { execSync } from "child_process";
-import { log } from "../../logger.js";
+import { log } from "../logger.js";
 
 /**
  * Initialize git repository with initial commit

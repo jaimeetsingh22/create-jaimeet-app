@@ -1,28 +1,3 @@
-// MySQL2 native connection (raw SQL)
-// Connection is setup only - no models included intentionally
-
-import mysql from "mysql2/promise";
-
-/**
- * Connect to MySQL using mysql2 (native driver)
- * For raw SQL queries without ORM
- */
-export const connectMySQL = async (host, user, password, database) => {
-  try {
-    const connection = await mysql.createConnection({
-      host: host,
-      user: user,
-      password: password,
-      database: database,
-    });
-    console.log("✅ Connected to MySQL successfully!");
-    return connection;
-  } catch (error) {
-    console.error("❌ Error connecting to MySQL:", error);
-    process.exit(1);
-  }
-};
-
 // Template for generated projects
 export const mysqlConnectionTemplate = `
 import mysql from "mysql2/promise";

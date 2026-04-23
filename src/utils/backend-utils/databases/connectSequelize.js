@@ -1,29 +1,3 @@
-// Sequelize ORM connection for PostgreSQL & MySQL
-// Connection is setup only - no models included intentionally
-
-import { Sequelize } from "sequelize";
-
-/**
- * Connect to database using Sequelize ORM
- * Supports PostgreSQL and MySQL
- */
-export const connectSequelize = async (host, user, password, database, dialect) => {
-  const sequelize = new Sequelize(database, user, password, {
-    host: host,
-    dialect: dialect, // 'mysql' | 'postgres'
-    logging: false,
-  });
-
-  try {
-    await sequelize.authenticate();
-    console.log(`✅ Connected to ${dialect.toUpperCase()} database successfully!`);
-    return sequelize;
-  } catch (error) {
-    console.error(`❌ Unable to connect to ${dialect} database:`, error);
-    process.exit(1);
-  }
-};
-
 // Template for generated projects (as a string constant)
 export const sequelizeConnectionTemplate = `import { Sequelize } from "sequelize";
 

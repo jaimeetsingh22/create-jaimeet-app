@@ -1,25 +1,3 @@
-// MongoDB connection using Mongoose
-// Connection is setup only - no models included intentionally
-
-import mongoose from "mongoose";
-
-/**
- * Connect to MongoDB using Mongoose
- * @param {string} dbURI - MongoDB connection URI
- * @param {string} dbName - Database name
- */
-export const connectMongoDB = async (dbURI, dbName) => {
-  try {
-    await mongoose.connect(dbURI, {
-      dbName: dbName,
-    });
-    console.log("✅ Connected to MongoDB successfully!", dbName);
-  } catch (error) {
-    console.error("❌ Error connecting to MongoDB:", error);
-    process.exit(1);
-  }
-};
-
 // Template for generated projects
 export const mongoDBConnectionTemplate = `
 import mongoose from "mongoose";

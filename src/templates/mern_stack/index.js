@@ -141,7 +141,7 @@ ${projectName}/
 
   log.info(`🚀 To get started:\n`);
   console.log(
-    `  cd ${projectName}/client     # frontend\n  npm run dev\n\n  cd ../server           # backend\n  npm run dev\n`
+    `Frontend:\n  cd ${projectName}/client\n  npm run dev\n\nBackend:\n  cd ${projectName}/server\n  npm run dev\n`
   );
 }
 
