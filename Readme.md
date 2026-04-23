@@ -4,37 +4,41 @@
 [![license](https://img.shields.io/npm/l/create-jaimeet-app.svg)](https://github.com/jaimeetsingh22/create-jaimeet-app/blob/main/LICENSE)
 [![downloads](https://img.shields.io/npm/dt/create-jaimeet-app.svg)](https://www.npmjs.com/package/create-jaimeet-app)
 
-A beautiful, beginner-friendly, and developer-focused CLI to **instantly generate Node.js + Fullstack boilerplates** — powered by **Express**, **React**, **Vite**, **MERN**, and **Next.js**.
+A beautiful, beginner-friendly, and developer-focused CLI to **instantly generate Node.js + Fullstack boilerplates** — powered by **Express**, **GraphQL**, **React**, **Vite**, **MERN**, and **Next.js**. 
+
 Made with ❤️ by [Jaimeet Singh](https://www.linkedin.com/in/jaimeet-singh-a594b62b0)
 
 ---
 
 ## 🚀 What It Does
 
-Spin up a full-featured starter project with just one command!
+Spin up a production-ready, full-featured starter project with just one command!
 
-- ✅ Clean folder structure
-- ✅ Boilerplate code templates
-- ✅ Pre-installed dependencies
-- ✅ Built-in `npm` scripts (`dev`, `start`)
-- ✅ Optional **Tailwind CSS** integration (for React/Vite)
-- ✅ Optional **Redux** integration (for React/Vite)
-- ✅ Optional **Router(react-router-dom)** integration (for React/Vite)
+- ✅ **Clean Folder Structure:** Generates controllers, routes, middlewares, and connection folders.
+- ✅ **Multi-Database Support:** Choose between **MongoDB** (Mongoose), **PostgreSQL / MySQL** (Sequelize ORM), or **MySQL Native** (raw mysql2 query support).
+- ✅ **GraphQL & REST API:** Quickly bootstrap an **Express REST API**, an **Apollo GraphQL Standalone** server, or **Express + Apollo GraphQL**.
+- ✅ **Frontend Excellence:** Instantly scaffold React (JS/TS) with optional **Tailwind CSS**, **Redux Toolkit**, and **React Router**.
+- ✅ **Developer Experience:** Automatically initializes a Git repository, and generates custom `.env.example`, `.gitignore`, and dynamic `README.md` instructions tailored to your choices.
+- ✅ **Zero Opinionated Models:** We intentionally leave out predefined database schemas so you have complete freedom to structure your application.
 
 Perfect for beginners and pros who want to skip the boring setup. 🔧
 
 ---
 
-## 🧠 Available Templates
+## 🧠 Available Templates & Architecture
 
-Choose from a growing set of templates:
+Choose from a growing set of highly customizable templates:
 
-- ⚛️ **React (JavaScript)**
-- ⚛ **React (TypeScript)**
-- 🔥 **MERN Stack (React + Express)**
+- ⚛️ **React (JavaScript / TypeScript)** 
+  - Scaffolds using Vite. Prompts for Tailwind, Router, and Redux.
+- 🔥 **MERN Stack (React + Node Backend)**
+  - Frontend: Generates Vite React app with UI features.
+  - Backend: Guides you to select between Express REST, GraphQL Standalone, or Express+GraphQL, and wires it to your database of choice.
 - ▲ **Next.js** (via official `create-next-app`)
-- 🛠️ **Backend API** (Express + MongoDB)
-- 🗄️ **Server-side Rendering** (Express + EJS Views)
+- 🛠️ **Backend API** 
+  - Generates a standalone backend CLI wizard for GraphQL or REST configurations with your chosen database connection out of the box.
+- 🗄️ **Server-side Rendering (SSR)** 
+  - Express + EJS Views wired with your database and standard security middlewares.
 
 ---
 
@@ -46,7 +50,7 @@ Install globally using `npm`:
 npm install -g create-jaimeet-app
 ```
 
-Or use it directly with `npx`:
+Or use it directly with `npx` (Recommended):
 
 ```bash
 npx create-jaimeet-app
@@ -63,7 +67,7 @@ npm link
 
 ## 🧪 Usage
 
-Run the CLI:
+Run the CLI natively from your terminal:
 
 ```bash
 create-jaimeet-app
@@ -71,32 +75,36 @@ create-jaimeet-app
 
 ---
 
-## You will be guided through the following:
+## 🎛️ Interactive Setup Guide
 
-```
-📛 Entering your project name
-🧱 Selecting your template (React, MERN, SSR, etc.)
-🎨 Tailwind CSS setup (if applicable)
-🎨 Redux setup (if applicable)
-🎨 Routing (react-router-dom) setup (if applicable)
+When you run the tool, you will seamlessly be guided through:
+
+1. **Entering your project name** (Creates normalized folder names).
+2. **Selecting your template** (React, MERN, Backend SSR, etc.).
+3. **Choosing Frontend Packages:** (Tailwind CSS, Redux, React-Router-DOM).
+4. **Selecting Backend Architecture:** Do you prefer traditional REST API or GraphQL?
+5. **Selecting Database:** Support for MongoDB, Sequelize (Postgres/MySQL), or Native MySQL.
+6. **Automatic Configuration:** The CLI writes boilerplate files, customizes your `.env.example`, and initializes a `git` repository with your first commit!
+
 And boom 💥 — you're ready to code!
-```
 
 ---
 
-## 🗂️ Sample Folder Structure for MERN stack
+## 🗂️ Sample Folder Structure (GraphQL + MongoDB example)
 
-```
+```text
 my-app/
-├── client/          # Frontend (React/Vite)
-│   └── src/
-├── server/          # Backend (Express/MongoDB)
-│   ├── routes/
-│   └── index.js
-└── README.md
+├── config/           # Configuration files
+├── connections/      # Database connection (e.g. connectMongoDB.js)
+├── middlewares/      # Express middlewares
+├── graphql/          # GraphQL schema (typedef.js) & resolvers (resolver.js)
+├── models/           # Database models (left empty for you to define)
+├── .env.example      # Environment template dynamically shaped around your DB
+├── .gitignore        # Generated Git ignore rules
+└── index.js          # Entry point
 ```
 
-### Scripts included
+### Scripts included dynamically based on your project:
 
 ```json
 "scripts": {
@@ -105,38 +113,51 @@ my-app/
 }
 ```
 
+---
+
 ## ⚙️ Dependencies Installed
 
+Dependencies are installed dynamically based on your quiz responses:
+
+**Always Included (Backend):**
 - `express`
 - `cors`
 - `dotenv`
-- `mongoose`
+- `nodemon` (Dev)
 
-_For SSR setup only:_
+**Database Connectors (Based on Choice):**
+- MongoDB: `mongoose`
+- PostgreSQL/MySQL: `sequelize`, `mysql2`, `pg`
+- MySQL Native: `mysql2`
 
-- `ejs`
-- `cookie-parser`
-- `multer`
-- `jsonwebtoken`
+**GraphQL Support:**
+- `@apollo/server`
+- `@as-integrations/express5`
 
-_Dev Dependency:_
+**SSR Support:**
+- `ejs`, `cookie-parser`
 
-- `nodemon`
+---
 
 ## 🌈 CLI Preview 📸
 
-> CLI Preview
+> Setup Wizard
 > ![CLI preview](image.png)
 
-> Next Step
+> Ready to Code
 > ![Next Step](image2.png)
 
 ---
 
-🤝 Need Help or Have a Feature Request? 
-💬 DM me directly on LinkedIn
-or open an Issue on GitHub.
----------------------------
+## 💡 SEO & Search Keywords
+`create-jaimeet-app`, `nodejs boilerplate generator`, `fullstack react express cli`, `mern stack generator`, `scaffolding tool for nodejs`, `graphql server generator`, `apollo server cli`, `express sequelize boilerplate`, `mysql native nodejs`, `vite react tailwind redux setup`, `react boilerplate cli`
+
+---
+
+🤝 **Need Help or Have a Feature Request?**  
+💬 DM me directly on LinkedIn or open an Issue on GitHub.
+
+---
 
 ## 🙋‍♂️ Author
 
@@ -159,5 +180,3 @@ This project is licensed under the **ISC License**.
 Pull requests and suggestions are welcome!
 Feel free to **fork** the repo and submit a **PR**.
 Let’s make open source more fun 🚀
-
-Let me know if you want a version with badges (like npm version, license, etc.) or a `CONTRIBUTING.md` template to go with it!

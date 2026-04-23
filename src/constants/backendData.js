@@ -1,5 +1,6 @@
 
 const serverText = "`Server is running on http://localhost:${PORT}`";
+const graphqlExpressText = "`🚀 Your GraphQL Server is running at http://localhost:${PORT}/graphql`";
 export const backend_with_SSR_data = {
   connectToDB: `
     import mongoose from "mongoose";    
@@ -205,3 +206,171 @@ app.listen(PORT, () => {
 
 };
 
+const graphql = {
+  typeDef:`#graphql
+
+  # Define a Todo type
+  type Todos {
+    userId: ID!
+    id: ID!
+    title: String!
+    completed: Boolean
+    user: Users
+  }
+
+  # Define a User type
+  type Users {
+    id: ID!
+    name: String
+    username: String
+    email: String
+    phone: String
+    website: String
+    company: String
+    todos: [Todos]
+  }
+
+  # Define root-level queries
+  type Query {
+    getTodos: [Todos]
+    getUsers: [Users]
+    getUsersById(id: ID!): Users
+  }
+  `,
+  resolver:{
+  // Resolver for fields inside Todos type
+  Todos: {
+    // Resolve the 'user' field inside a Todo
+    user: async (todo) => {
+      const { userId } = todo;
+ 
+      const data = await fetch(
+        `https://jsonplaceholder.typicode.com/users/${userId}`
+      );
+      console.log(`Fetched user data: ${JSON.stringify(data)}`);
+
+      return await data.json(); // returns a single user object
+    },
+  },
+
+  // Resolver for fields inside Users type
+  Users: {
+    // Resolve the 'todos' field inside a User
+    todos: async (user) => {
+      const data  = await fetch(
+        `https://jsonplaceholder.typicode.com/todos?userId=${user.id}`
+      );
+      return await data.json(); // returns an array of todos belonging to this user
+    },
+  },
+
+  // Root-level Query resolvers
+  Query: {
+    // Fetch all todos
+    getTodos: async () => {
+      const  data  = await fetch(
+        "https://jsonplaceholder.typicode.com/todos"
+      );
+      return await data.json();
+    },
+
+    // Fetch all users
+    getUsers: async () => {
+      const data  = await fetch(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      return await data.json();
+    },
+
+    // Fetch single user by ID
+    getUsersById: async (_, { id }) => {
+      const  data  = await fetch(
+        `https://jsonplaceholder.typicode.com/users/${id}`
+      );
+      return await data.json();
+    },
+  },
+},
+
+graphqlExpressServer:`
+import dotenv from 'dotenv';
+dotenv.config();
+import express from 'express';
+import cors from 'cors';
+import { ApolloServer } from "@apollo/server";
+import { expressMiddleware } from "@as-integrations/express5";
+import { typeDefs } from './graphql/typedef.js';
+import { resolvers } from './graphql/resolver.js';
+import { Middleware } from './middlewares/middleware.js';
+// Import your database connection based on your choice:
+// import { connectMongoDB } from './connections/connectMongoDB.js';
+// import { connectSequelize } from './connections/connectSequelize.js';
+// import { connectMySQL } from './connections/connectMySQL.js';
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Connect to database (uncomment the one you're using)
+// await connectMongoDB();
+// await connectSequelize();
+// await connectMySQL();
+
+// Express middlewares
+app.use(cors());
+app.use(express.json());
+app.use(Middleware);
+
+// ApolloServer setup
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+
+await server.start();
+
+// Apply GraphQL middleware at /graphql endpoint
+app.use("/graphql", expressMiddleware(server));
+
+// Root endpoint
+app.get("/", (req, res) => {
+  res.json({ message: "GraphQL server running. Visit /graphql" });
+});
+
+app.listen(PORT, () => {
+  console.log(${graphqlExpressText});
+});
+`,
+standAloneServer:`
+import dotenv from 'dotenv';
+dotenv.config();
+import { ApolloServer } from "@apollo/server";
+import { startStandaloneServer } from "@apollo/server/standalone";
+import { typeDefs } from './graphql/typedef.js';
+import { resolvers } from './graphql/resolver.js';
+// Import your database connection based on your choice:
+// import { connectMongoDB } from './connections/connectMongoDB.js';
+// import { connectSequelize } from './connections/connectSequelize.js';
+// import { connectMySQL } from './connections/connectMySQL.js';
+
+const PORT = process.env.PORT || 3000;
+
+// Connect to database (uncomment the one you're using)
+// await connectMongoDB();
+// await connectSequelize();
+// await connectMySQL();
+
+// Create Apollo Server
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+
+// Start standalone server
+const { url } = await startStandaloneServer(server, {
+  listen: { port: PORT },
+});
+
+console.log("🚀 GraphQL Server ready at", url);
+`
+
+}
