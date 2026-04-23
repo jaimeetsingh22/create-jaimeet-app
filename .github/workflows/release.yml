@@ -31,8 +31,6 @@ jobs:
         uses: googleapis/release-please-action@v4
         env:
           FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-        with:
-          release-type: node
 
   publish:
     name: Publish to npm
