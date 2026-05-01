@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/jaimeetsingh22/create-jaimeet-app/compare/create-jaimeet-app-v1.2.0...create-jaimeet-app-v1.3.0) (2026-05-01)
+
+
+### Features
+
+* **templates:** update React UI constants to match new dark-themed Vite layout with Tailwind and Redux support ([#5](https://github.com/jaimeetsingh22/create-jaimeet-app/issues/5)) ([ce0ea53](https://github.com/jaimeetsingh22/create-jaimeet-app/commit/ce0ea5393607682f91a4834b086bc36e58140f39))
+
 ## [1.2.0](https://github.com/jaimeetsingh22/create-jaimeet-app/compare/create-jaimeet-app-v1.1.0...create-jaimeet-app-v1.2.0) (2026-04-23)
 
 
