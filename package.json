@@ -7,8 +7,8 @@
     "create-jaimeet-app": "bin/index.js"
   },
   "scripts": {
-    "start": "node ./bin/index.js",
-    "dev": "node ./bin/index.js"
+    "start": "cd test && node ../bin/index.js",
+    "dev": "cd test && node ../bin/index.js"
   },
   "keywords": [
     "cli",

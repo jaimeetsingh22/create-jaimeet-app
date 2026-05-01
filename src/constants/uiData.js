@@ -1,5 +1,5 @@
 export const uiData = {
-  base: "no need to setup because use default vite react", // Normal React template
+  base: "no need to setup because use default vite react",
   tailwind: {
     indexCss: `@import "tailwindcss"; 
 /* You can remove all the remaining css except @import "tailwindcss"  */
@@ -76,47 +76,102 @@ button:focus-visible {
 `,
     App: `import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import viteLogo from './assets/vite.svg'
+import heroImg from './assets/hero.png'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className='flex flex-col items-center justify-center' style={{
-      height:"90vh"
-    }}>
-      <div className='flex items-center justify-center'>
-        <a className='block' href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a className='block' href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <>
+      <section className="flex flex-col gap-6 items-center justify-center flex-grow p-8 text-center">
+        <div className="relative w-[170px] h-[179px] mx-auto">
+          <img src={heroImg} className="absolute inset-x-0 mx-auto z-0" width="170" height="179" alt="" />
+          <img src={reactLogo} className="absolute inset-x-0 mx-auto z-10 top-[34px] h-[28px] drop-shadow-lg" style={{ transform: "perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg) scale(1.4)" }} alt="React logo" />
+          <img src={viteLogo} className="absolute inset-x-0 mx-auto z-0 top-[107px] h-[26px] w-auto drop-shadow-md" style={{ transform: "perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) scale(0.8)" }} alt="Vite logo" />
+        </div>
+        <div className="text-center">
+          <h1 className="text-5xl font-bold mb-4">Get started</h1>
+          <p className="text-gray-400">
+            Edit <code className="bg-white/10 px-1 py-0.5 rounded">src/App.jsx</code> and save to test <code className="bg-white/10 px-1 py-0.5 rounded">HMR</code>
+          </p>
+        </div>
+        
+        <button type="button" className="text-base px-3 py-1.5 rounded-md bg-[#1a1a1a] border-2 border-transparent hover:border-[#646cff] transition-colors mb-6" onClick={() => setCount((count) => count + 1)}>Count is {count}</button>
+      </section>
+
+      <div className="relative w-full border-t border-[#333]"></div>
+
+      <section className="flex flex-col lg:flex-row text-left w-full max-w-5xl mx-auto">
+        <div className="flex-1 p-8 border-b lg:border-b-0 lg:border-r border-[#333]">
+          <svg className="w-6 h-6 mb-4" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#documentation-icon"></use>
+          </svg>
+          <h2 className="text-xl font-semibold mb-2">Documentation</h2>
+          <p className="text-gray-400 mb-6">Your questions, answered</p>
+          <ul className="flex flex-wrap gap-2 m-0 p-0 list-none">
+            <li>
+              <a href="https://vite.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <img className="h-4" src={viteLogo} alt="" />
+                Explore Vite
+              </a>
+            </li>
+            <li>
+              <a href="https://react.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <img className="h-4 w-4" src={reactLogo} alt="" />
+                Learn more
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="flex-1 p-8">
+          <svg className="w-6 h-6 mb-4" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#social-icon"></use>
+          </svg>
+          <h2 className="text-xl font-semibold mb-2">Connect with us</h2>
+          <p className="text-gray-400 mb-6">Join the Vite community</p>
+          <ul className="flex flex-wrap gap-2 m-0 p-0 list-none">
+            <li>
+              <a href="https://github.com/vitejs/vite" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://chat.vite.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>
+                Discord
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/vite_js" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>
+                X.com
+              </a>
+            </li>
+            <li>
+              <a href="https://bsky.app/profile/vite.dev" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>
+                Bluesky
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div className="relative w-full border-t border-[#333]"></div>
+      <section className="h-12 lg:h-24"></section>
+    </>
   )
 }
 
 export default App
-`,
+`
   },
   router: {
     main: {
-      ts: `
-import { StrictMode } from "react";
+      ts: `import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
@@ -124,15 +179,12 @@ import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>
-);
-
-    `,
-      js: `
-import { StrictMode } from "react";
+);`,
+      js: `import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
@@ -140,22 +192,13 @@ import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>
-);
-
-    `,
+);`
     },
-    //src/App
-    App: `
-import {
- Link,
- Route,
-  Routes,
-  useLocation
-} from "react-router-dom";
+    App: `import { Link, Route, Routes, useLocation } from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
 
@@ -163,64 +206,35 @@ const App = () => {
   const location = useLocation();
 
   return (
-    // this is example boiler plate code of routing.
     <div>
-      <nav>
-      <h2 style={{
-        marginBottom:"0.5rem"
-      }}>Navigation Buttons 👇</h2>
-        <div style={{
-        display:"flex",
-        alignItems:"center",
-        justifyContent:"center",
-        gap:"1.25rem"
-      }}>
-            <Link
-              style={{
-                color: "white",
-              }}
-              to="/"
-            >
-          <button style={{
-            borderBottom:
-                  location.pathname === "/" ? "4px solid white" : "none",
-          }}>
-              Home
+      <nav style={{ padding: "16px", borderBottom: "1px solid var(--border)", display: "flex", justifyContent: "center", gap: "16px", backgroundColor: "var(--social-bg)" }}>
+        <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+          <button style={{ borderBottom: location.pathname === "/" ? "2px solid #646cff" : "none", background: "none", border: "none", padding: "8px", color: "white", cursor: "pointer", fontWeight: "bold" }}>
+            Home
           </button>
-            </Link>
-            <Link
-              style={{
-                color: "white",
-                }}
-                to="/about"
-                >
-              <button style={{
-                borderBottom:
-                  location.pathname === "/about" ? "4px solid white" : "none",
-              }}>
-              About
+        </Link>
+        <Link to="/about" style={{ color: "white", textDecoration: "none" }}>
+          <button style={{ borderBottom: location.pathname === "/about" ? "2px solid #646cff" : "none", background: "none", border: "none", padding: "8px", color: "white", cursor: "pointer", fontWeight: "bold" }}>
+            About
           </button>
-            </Link>
-        </div>
+        </Link>
       </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        {/* you can also add Dynamic path like this 👇 */}
-        {/* <Route path=":id" element={<h1>ID Route</h1>} /> */}
-      </Routes>
+      <div style={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
     </div>
   );
 };
 
 export default App;
-
 `,
-    // path src/pages/Home.tsx or Home.jsx
-    Home: `
-import { useState } from 'react'
+    Home: `import { useState } from 'react'
 import reactLogo from '../assets/react.svg'
-import viteLogo from '/vite.svg'
+import viteLogo from '../assets/vite.svg'
+import heroImg from '../assets/hero.png'
 import '../App.css'
 
 function Home() {
@@ -228,77 +242,112 @@ function Home() {
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <h3>Routing enabled!</h3>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <section id="center">
+        <div className="hero">
+          <img src={heroImg} className="base" width="170" height="179" alt="" />
+          <img src={reactLogo} className="framework" alt="React logo" />
+          <img src={viteLogo} className="vite" alt="Vite logo" />
+        </div>
+        <div>
+          <h1>Get started</h1>
+          <p>
+            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+          </p>
+        </div>
+        
+        <button type="button" className="counter" onClick={() => setCount((count) => count + 1)}>Count is {count}</button>
+      </section>
+
+      <div className="ticks"></div>
+
+      <section id="next-steps">
+        <div id="docs">
+          <svg className="icon" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#documentation-icon"></use>
+          </svg>
+          <h2>Documentation</h2>
+          <p>Your questions, answered</p>
+          <ul>
+            <li>
+              <a href="https://vite.dev/" target="_blank">
+                <img className="logo" src={viteLogo} alt="" />
+                Explore Vite
+              </a>
+            </li>
+            <li>
+              <a href="https://react.dev/" target="_blank">
+                <img className="button-icon" src={reactLogo} alt="" />
+                Learn more
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div id="social">
+          <svg className="icon" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#social-icon"></use>
+          </svg>
+          <h2>Connect with us</h2>
+          <p>Join the Vite community</p>
+          <ul>
+            <li>
+              <a href="https://github.com/vitejs/vite" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#github-icon"></use>
+                </svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://chat.vite.dev/" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#discord-icon"></use>
+                </svg>
+                Discord
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/vite_js" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#x-icon"></use>
+                </svg>
+                X.com
+              </a>
+            </li>
+            <li>
+              <a href="https://bsky.app/profile/vite.dev" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#bluesky-icon"></use>
+                </svg>
+                Bluesky
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div className="ticks"></div>
+      <section id="spacer"></section>
     </>
   )
 }
 
-export default Home;
-
+export default Home
 `,
-    //path src/page/About.tsx or About.jsx
-    About: `      
-const About = () => {
+    About: `const About = () => {
   return (
-    <div
-      style={{
-        height:"75vh",
-        display:'flex',
-        flexDirection:"column",
-        alignItems:'center',
-        justifyContent:"center"
-      }}
-    >
-        <h1>About Page</h1>
-        <p>This is the about page of the application. And you are in the <span style={{
-            fontWeight:"bold",
-            color:"oklch(62.3% 0.214 259.815)"
-          }}>'/about'</span> route</p>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", flexGrow: 1, padding: "32px", textAlign: "center" }}>
+      <h1 >About Page</h1>
+      <p >This is the about page. You are currently on the <span style={{ color: "var(--accent)", fontWeight: "bold" }}>'/about'</span> route.</p>
     </div>
   )
 }
 
-export default About
-      `,
+export default About;
+`
   },
   redux: {
-    // path: src/store/store.ts or store.js
     store: {
       ts: `import { configureStore } from '@reduxjs/toolkit'
-      import counterReducer from '../features/counter/counterSlice'
-
-        export const store = configureStore({
-         reducer: {
-            counter: counterReducer,
-        },
-     })
-
-// Infer the 'RootState' and 'AppDispatch' types from the store itself
-export type RootState = ReturnType<typeof store.getState>
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch
-`,
-      js: `import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from '../features/counter/counterSlice'
 
 export const store = configureStore({
@@ -306,7 +355,17 @@ export const store = configureStore({
     counter: counterReducer,
   },
 })
-  `,
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch`,
+      js: `import { configureStore } from '@reduxjs/toolkit'
+import counterReducer from '../features/counter/counterSlice'
+
+export const store = configureStore({
+  reducer: {
+    counter: counterReducer,
+  },
+})`
     },
     main: {
       js: `import { StrictMode } from "react";
@@ -322,8 +381,7 @@ createRoot(document.getElementById("root")).render(
       <App />
     </Provider>
   </StrictMode>
-);
-`,
+);`,
       ts: `import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
@@ -337,10 +395,8 @@ createRoot(document.getElementById("root")!).render(
       <App />
     </Provider>
   </StrictMode>
-);
-`,
+);`
     },
-    // path: src/features/counter/counterSlice.ts or counterSlice.js
     counter_slice: {
       ts: `import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
@@ -358,10 +414,6 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
       state.value += 1
     },
     decrement: (state) => {
@@ -373,13 +425,9 @@ export const counterSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
 export const { increment, decrement, incrementByAmount } = counterSlice.actions
-
-export default counterSlice.reducer
-`,
-      js: `
-import { createSlice } from '@reduxjs/toolkit'
+export default counterSlice.reducer`,
+      js: `import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   value: 0,
@@ -390,10 +438,6 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
       state.value += 1
     },
     decrement: (state) => {
@@ -405,67 +449,119 @@ export const counterSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
 export const { increment, decrement, incrementByAmount } = counterSlice.actions
-
-export default counterSlice.reducer
-`,
+export default counterSlice.reducer`
     },
     App: {
-      ts: `
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+      ts: `import reactLogo from './assets/react.svg'
+import viteLogo from './assets/vite.svg'
+import heroImg from './assets/hero.png'
+import './App.css'
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "./store/store";
 import { decrement, increment } from "./features/counter/counterSlice";
+import type { RootState } from "./store/store";
 
 function App() {
-  const count = useSelector((state: RootState) => state.counter.value);
+  const count = useSelector((state: any) => state.counter.value);
   const dispatch = useDispatch();
 
   return (
-     <>
-          <div>
-            <a href="https://vite.dev" target="_blank">
-              <img src={viteLogo} className="logo" alt="Vite logo" />
-            </a>
-            <a href="https://react.dev" target="_blank">
-              <img src={reactLogo} className="logo react" alt="React logo" />
-            </a>
-          </div>
-          <h1>Vite + React</h1>
-          <div className="card">
-                  <h2 className="mb-4 text-lg">
-                    count is <span className="font-bold text-blue-500">{count}</span>
-                  </h2>
-                  <div className="flex items-center justify-center gap-5" style={{
-                    display:'flex',
-                    alignItems:'center',
-                    justifyContent:'center',
-                    gap:'1rem',
-                  }}>
-                    <button onClick={()=>dispatch(increment())}>➕</button>
-                    <button onClick={()=>dispatch(decrement())}>➖</button>
-                  </div>
-                  <p>
-                    Edit <code>src/App.tsx</code> and save to test HMR
-                  </p>
-                </div>
-          <p className="read-the-docs">
-            Click on the Vite and React logos to learn more
+    <>
+      <section id="center">
+        <div className="hero">
+          <img src={heroImg} className="base" width="170" height="179" alt="" />
+          <img src={reactLogo} className="framework" alt="React logo" />
+          <img src={viteLogo} className="vite" alt="Vite logo" />
+        </div>
+        <div>
+          <h1>Get started</h1>
+          <p>
+            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
           </p>
-        </>
-  );
+        </div>
+        <h2>count is <span style={{ color: 'var(--accent)' }}>{count}</span></h2>
+        <div style={{ display: 'flex', gap: '10px', marginBottom: '24px' }}><button className="counter" onClick={() => dispatch(increment())}>➕</button><button className="counter" onClick={() => dispatch(decrement())}>➖</button></div>
+      </section>
+
+      <div className="ticks"></div>
+
+      <section id="next-steps">
+        <div id="docs">
+          <svg className="icon" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#documentation-icon"></use>
+          </svg>
+          <h2>Documentation</h2>
+          <p>Your questions, answered</p>
+          <ul>
+            <li>
+              <a href="https://vite.dev/" target="_blank">
+                <img className="logo" src={viteLogo} alt="" />
+                Explore Vite
+              </a>
+            </li>
+            <li>
+              <a href="https://react.dev/" target="_blank">
+                <img className="button-icon" src={reactLogo} alt="" />
+                Learn more
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div id="social">
+          <svg className="icon" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#social-icon"></use>
+          </svg>
+          <h2>Connect with us</h2>
+          <p>Join the Vite community</p>
+          <ul>
+            <li>
+              <a href="https://github.com/vitejs/vite" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#github-icon"></use>
+                </svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://chat.vite.dev/" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#discord-icon"></use>
+                </svg>
+                Discord
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/vite_js" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#x-icon"></use>
+                </svg>
+                X.com
+              </a>
+            </li>
+            <li>
+              <a href="https://bsky.app/profile/vite.dev" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#bluesky-icon"></use>
+                </svg>
+                Bluesky
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div className="ticks"></div>
+      <section id="spacer"></section>
+    </>
+  )
 }
 
-export default App;
-
-        `,
-      js: `
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+export default App
+`,
+      js: `import reactLogo from './assets/react.svg'
+import viteLogo from './assets/vite.svg'
+import heroImg from './assets/hero.png'
+import './App.css'
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "./features/counter/counterSlice";
 
@@ -475,214 +571,380 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-              <h2 className="mb-4 text-lg">
-                count is <span className="font-bold text-blue-500">{count}</span>
-              </h2>
-              <div className="flex items-center justify-center gap-5" style={{
-                display:'flex',
-                alignItems:'center',
-                justifyContent:'center',
-                gap:'1rem',
-              }}>
-                <button onClick={()=>dispatch(increment())}>➕</button>
-                <button onClick={()=>dispatch(decrement())}>➖</button>
-              </div>
-              <p>
-                Edit <code>src/App.tsx</code> and save to test HMR
-              </p>
-            </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  );
-}
-
-export default App;
-
-        `,
-    },
-  },
-  combinations: {
-    tailwind_router: {
-      main: {
-        ts: `
-      import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.tsx";
-import { BrowserRouter } from "react-router-dom";
-
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-  </StrictMode>
-);
-
-      `,
-        js: `
-      import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.jsx";
-import { BrowserRouter } from "react-router-dom";
-
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-  </StrictMode>
-);
-
-      `,
-      },
-      App: `
-      import {
-  Link,
-  Route,
-  Routes,
-  useLocation
-} from "react-router-dom";
-import About from "./pages/About";
-import Home from "./pages/Home";
-
-const App = () => {
-  const location = useLocation();
-
-  return (
-    // this is example boiler plate code of routing.
-    <div className="max-h-9">
-      <nav>
-      <h2 className="mb-2">Navigation Buttons 👇</h2>
-        <div className="flex align-center justify-center gap-5">
-            <Link
-              style={{
-                color: "white",
-              }}
-              to="/"
-            >
-          <button style={{
-            borderBottom:
-                  location.pathname === "/" ? "4px solid white" : "none",
-          }}>
-              Home
-          </button>
-            </Link>
-            <Link
-              style={{
-                color: "white",
-                }}
-                to="/about"
-                >
-              <button style={{
-                borderBottom:
-                  location.pathname === "/about" ? "4px solid white" : "none",
-              }}>
-              About
-          </button>
-            </Link>
+      <section id="center">
+        <div className="hero">
+          <img src={heroImg} className="base" width="170" height="179" alt="" />
+          <img src={reactLogo} className="framework" alt="React logo" />
+          <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        {/* you can also add Dynamic path like this 👇 */}
-        {/* <Route path=":id" element={<h1>ID Route</h1>} /> */}
-      </Routes>
-    </div>
-  );
-};
+        <div>
+          <h1>Get started</h1>
+          <p>
+            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+          </p>
+        </div>
+        <h2>count is <span style={{ color: 'var(--accent)' }}>{count}</span></h2>
+        <div style={{ display: 'flex', gap: '10px', marginBottom: '24px' }}><button className="counter" onClick={() => dispatch(increment())}>➕</button><button className="counter" onClick={() => dispatch(decrement())}>➖</button></div>
+      </section>
 
-export default App;
-      `,
-      // path: src/pages/Home.tsx or Home.jsx
-      Home: `import { useState } from 'react'
-import reactLogo from '../assets/react.svg'
-import viteLogo from '/vite.svg'
-import '../App.css'
+      <div className="ticks"></div>
 
-function App() {
-  const [count, setCount] = useState(0)
+      <section id="next-steps">
+        <div id="docs">
+          <svg className="icon" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#documentation-icon"></use>
+          </svg>
+          <h2>Documentation</h2>
+          <p>Your questions, answered</p>
+          <ul>
+            <li>
+              <a href="https://vite.dev/" target="_blank">
+                <img className="logo" src={viteLogo} alt="" />
+                Explore Vite
+              </a>
+            </li>
+            <li>
+              <a href="https://react.dev/" target="_blank">
+                <img className="button-icon" src={reactLogo} alt="" />
+                Learn more
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div id="social">
+          <svg className="icon" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#social-icon"></use>
+          </svg>
+          <h2>Connect with us</h2>
+          <p>Join the Vite community</p>
+          <ul>
+            <li>
+              <a href="https://github.com/vitejs/vite" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#github-icon"></use>
+                </svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://chat.vite.dev/" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#discord-icon"></use>
+                </svg>
+                Discord
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/vite_js" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#x-icon"></use>
+                </svg>
+                X.com
+              </a>
+            </li>
+            <li>
+              <a href="https://bsky.app/profile/vite.dev" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#bluesky-icon"></use>
+                </svg>
+                Bluesky
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-  return (
-    <div className='flex flex-col items-center justify-center' style={{
-      height:"90vh"
-    }}>
-      <div className='flex items-center justify-center'>
-        <a className='block' href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a className='block' href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+      <div className="ticks"></div>
+      <section id="spacer"></section>
+    </>
   )
 }
 
 export default App
-          `,
-      //path: src/pages/About.tsx or About.jsx
-      About: `      
-const About = () => {
+`
+    }
+  },
+  combinations: {
+    tailwind_router: {
+      main: {
+        ts: `import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.tsx";
+import { BrowserRouter } from "react-router-dom";
+
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>
+);`,
+        js: `import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { BrowserRouter } from "react-router-dom";
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>
+);`
+      },
+      App: `import { Link, Route, Routes, useLocation } from "react-router-dom";
+import About from "./pages/About";
+import Home from "./pages/Home";
+
+const App = () => {
+  const location = useLocation();
+
   return (
-    <div
-      className="flex flex-col items-center justify-center"
-      style={{
-        height:"75vh",
-      }}
-    >
-        <h1>About Page</h1>
-        <p>This is the about page of the application. And you are in the <span className="font-bold text-blue-500">'/about'</span> route</p>
+    <div className="flex flex-col min-h-screen">
+      <nav className="p-4 border-b border-[#333] flex justify-center gap-4 bg-[#1a1a1a]">
+        <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+          <button style={{ borderBottom: location.pathname === "/" ? "2px solid #646cff" : "none", background: "none", border: "none", padding: "8px", color: "white", cursor: "pointer", fontWeight: "bold" }}>
+            Home
+          </button>
+        </Link>
+        <Link to="/about" style={{ color: "white", textDecoration: "none" }}>
+          <button style={{ borderBottom: location.pathname === "/about" ? "2px solid #646cff" : "none", background: "none", border: "none", padding: "8px", color: "white", cursor: "pointer", fontWeight: "bold" }}>
+            About
+          </button>
+        </Link>
+      </nav>
+      <div className="flex-grow flex flex-col">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </div>
+  );
+};
+
+export default App;
+`,
+      Home: `import { useState } from 'react'
+import reactLogo from '../assets/react.svg'
+import viteLogo from '../assets/vite.svg'
+import heroImg from '../assets/hero.png'
+import '../App.css'
+
+function Home() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <section className="flex flex-col gap-6 items-center justify-center flex-grow p-8 text-center">
+        <div className="relative w-[170px] h-[179px] mx-auto">
+          <img src={heroImg} className="absolute inset-x-0 mx-auto z-0" width="170" height="179" alt="" />
+          <img src={reactLogo} className="absolute inset-x-0 mx-auto z-10 top-[34px] h-[28px] drop-shadow-lg" style={{ transform: "perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg) scale(1.4)" }} alt="React logo" />
+          <img src={viteLogo} className="absolute inset-x-0 mx-auto z-0 top-[107px] h-[26px] w-auto drop-shadow-md" style={{ transform: "perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) scale(0.8)" }} alt="Vite logo" />
+        </div>
+        <div className="text-center">
+          <h1 className="text-5xl font-bold mb-4">Get started</h1>
+          <p className="text-gray-400">
+            Edit <code className="bg-white/10 px-1 py-0.5 rounded">src/App.jsx</code> and save to test <code className="bg-white/10 px-1 py-0.5 rounded">HMR</code>
+          </p>
+        </div>
+        
+        <button type="button" className="text-base px-3 py-1.5 rounded-md bg-[#1a1a1a] border-2 border-transparent hover:border-[#646cff] transition-colors mb-6" onClick={() => setCount((count) => count + 1)}>Count is {count}</button>
+      </section>
+
+      <div className="relative w-full border-t border-[#333]"></div>
+
+      <section className="flex flex-col lg:flex-row text-left w-full max-w-5xl mx-auto">
+        <div className="flex-1 p-8 border-b lg:border-b-0 lg:border-r border-[#333]">
+          <svg className="w-6 h-6 mb-4" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#documentation-icon"></use>
+          </svg>
+          <h2 className="text-xl font-semibold mb-2">Documentation</h2>
+          <p className="text-gray-400 mb-6">Your questions, answered</p>
+          <ul className="flex flex-wrap gap-2 m-0 p-0 list-none">
+            <li>
+              <a href="https://vite.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <img className="h-4" src={viteLogo} alt="" />
+                Explore Vite
+              </a>
+            </li>
+            <li>
+              <a href="https://react.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <img className="h-4 w-4" src={reactLogo} alt="" />
+                Learn more
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="flex-1 p-8">
+          <svg className="w-6 h-6 mb-4" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#social-icon"></use>
+          </svg>
+          <h2 className="text-xl font-semibold mb-2">Connect with us</h2>
+          <p className="text-gray-400 mb-6">Join the Vite community</p>
+          <ul className="flex flex-wrap gap-2 m-0 p-0 list-none">
+            <li>
+              <a href="https://github.com/vitejs/vite" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://chat.vite.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>
+                Discord
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/vite_js" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>
+                X.com
+              </a>
+            </li>
+            <li>
+              <a href="https://bsky.app/profile/vite.dev" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>
+                Bluesky
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div className="relative w-full border-t border-[#333]"></div>
+      <section className="h-12 lg:h-24"></section>
+    </>
+  )
+}
+
+export default Home
+`,
+      About: `const About = () => {
+  return (
+    <div className="flex flex-col items-center justify-center flex-grow p-8 text-center">
+      <h1 className="text-4xl font-bold mb-4">About Page</h1>
+      <p className="text-gray-400">This is the about page. You are currently on the <span className="text-[#646cff] font-bold">'/about'</span> route.</p>
     </div>
   )
 }
 
-export default About
-      `,
+export default About;
+`
     },
     tailwind_redux: {
-      // path: store/store.ts or store.js
       store: {
         js: "same as -> redux.store.js",
-        ts: "same as -> redux.store.ts",
+        ts: "same as -> redux.store.ts"
       },
-      // path: src/features/counterSlice.js or counterSlice.ts
       counter_slice: {
-        js: "same as -> redux.slices.js",
-        ts: "same as -> redux.slices.ts",
+        js: "same as -> redux.counter_slice.js",
+        ts: "same as -> redux.counter_slice.ts"
       },
       main: "same as -> redux.main.js or redux.main.ts",
       App: {
-        js: `      
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+        ts: `import reactLogo from './assets/react.svg'
+import viteLogo from './assets/vite.svg'
+import heroImg from './assets/hero.png'
+import './App.css'
+import { useDispatch, useSelector } from "react-redux";
+import { decrement, increment } from "./features/counter/counterSlice";
+import type { RootState } from "./store/store";
+
+function App() {
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+
+  return (
+    <>
+      <section className="flex flex-col gap-6 items-center justify-center flex-grow p-8 text-center">
+        <div className="relative w-[170px] h-[179px] mx-auto">
+          <img src={heroImg} className="absolute inset-x-0 mx-auto z-0" width="170" height="179" alt="" />
+          <img src={reactLogo} className="absolute inset-x-0 mx-auto z-10 top-[34px] h-[28px] drop-shadow-lg" style={{ transform: "perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg) scale(1.4)" }} alt="React logo" />
+          <img src={viteLogo} className="absolute inset-x-0 mx-auto z-0 top-[107px] h-[26px] w-auto drop-shadow-md" style={{ transform: "perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) scale(0.8)" }} alt="Vite logo" />
+        </div>
+        <div className="text-center">
+          <h1 className="text-5xl font-bold mb-4">Get started</h1>
+          <p className="text-gray-400">
+            Edit <code className="bg-white/10 px-1 py-0.5 rounded">src/App.jsx</code> and save to test <code className="bg-white/10 px-1 py-0.5 rounded">HMR</code>
+          </p>
+        </div>
+        <h2 className="mb-4 text-lg">count is <span className="font-bold text-[#646cff]">{count}</span></h2>
+        <div className="flex gap-4 mb-6"><button className="px-3 py-1.5 rounded-md bg-[#1a1a1a] border-2 border-transparent hover:border-[#646cff] transition-colors" onClick={() => dispatch(increment())}>➕</button><button className="px-3 py-1.5 rounded-md bg-[#1a1a1a] border-2 border-transparent hover:border-[#646cff] transition-colors" onClick={() => dispatch(decrement())}>➖</button></div>
+      </section>
+
+      <div className="relative w-full border-t border-[#333]"></div>
+
+      <section className="flex flex-col lg:flex-row text-left w-full max-w-5xl mx-auto">
+        <div className="flex-1 p-8 border-b lg:border-b-0 lg:border-r border-[#333]">
+          <svg className="w-6 h-6 mb-4" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#documentation-icon"></use>
+          </svg>
+          <h2 className="text-xl font-semibold mb-2">Documentation</h2>
+          <p className="text-gray-400 mb-6">Your questions, answered</p>
+          <ul className="flex flex-wrap gap-2 m-0 p-0 list-none">
+            <li>
+              <a href="https://vite.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <img className="h-4" src={viteLogo} alt="" />
+                Explore Vite
+              </a>
+            </li>
+            <li>
+              <a href="https://react.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <img className="h-4 w-4" src={reactLogo} alt="" />
+                Learn more
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="flex-1 p-8">
+          <svg className="w-6 h-6 mb-4" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#social-icon"></use>
+          </svg>
+          <h2 className="text-xl font-semibold mb-2">Connect with us</h2>
+          <p className="text-gray-400 mb-6">Join the Vite community</p>
+          <ul className="flex flex-wrap gap-2 m-0 p-0 list-none">
+            <li>
+              <a href="https://github.com/vitejs/vite" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://chat.vite.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>
+                Discord
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/vite_js" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>
+                X.com
+              </a>
+            </li>
+            <li>
+              <a href="https://bsky.app/profile/vite.dev" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>
+                Bluesky
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div className="relative w-full border-t border-[#333]"></div>
+      <section className="h-12 lg:h-24"></section>
+    </>
+  )
+}
+
+export default App
+`,
+        js: `import reactLogo from './assets/react.svg'
+import viteLogo from './assets/vite.svg'
+import heroImg from './assets/hero.png'
+import './App.css'
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "./features/counter/counterSlice";
 
@@ -691,102 +953,95 @@ function App() {
   const dispatch = useDispatch();
 
   return (
-    <div
-      className="flex flex-col items-center justify-center"
-      style={{
-        height: "90vh",
-      }}
-    >
-      <div className="flex items-center justify-center">
-        <a className="block" href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a className="block" href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <h3>Tailwind + Redux</h3>
-      <div className="card">
-        <h2 className="mb-4 text-lg">
-          count is <span className="font-bold text-blue-500">{count}</span>
-        </h2>
-        <div className="flex items-center justify-center gap-5">
-          <button onClick={()=>dispatch(increment())}>➕</button>
-          <button onClick={()=>dispatch(decrement())}>➖</button>
+    <>
+      <section className="flex flex-col gap-6 items-center justify-center flex-grow p-8 text-center">
+        <div className="relative w-[170px] h-[179px] mx-auto">
+          <img src={heroImg} className="absolute inset-x-0 mx-auto z-0" width="170" height="179" alt="" />
+          <img src={reactLogo} className="absolute inset-x-0 mx-auto z-10 top-[34px] h-[28px] drop-shadow-lg" style={{ transform: "perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg) scale(1.4)" }} alt="React logo" />
+          <img src={viteLogo} className="absolute inset-x-0 mx-auto z-0 top-[107px] h-[26px] w-auto drop-shadow-md" style={{ transform: "perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) scale(0.8)" }} alt="Vite logo" />
         </div>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  );
+        <div className="text-center">
+          <h1 className="text-5xl font-bold mb-4">Get started</h1>
+          <p className="text-gray-400">
+            Edit <code className="bg-white/10 px-1 py-0.5 rounded">src/App.jsx</code> and save to test <code className="bg-white/10 px-1 py-0.5 rounded">HMR</code>
+          </p>
+        </div>
+        <h2 className="mb-4 text-lg">count is <span className="font-bold text-[#646cff]">{count}</span></h2>
+        <div className="flex gap-4 mb-6"><button className="px-3 py-1.5 rounded-md bg-[#1a1a1a] border-2 border-transparent hover:border-[#646cff] transition-colors" onClick={() => dispatch(increment())}>➕</button><button className="px-3 py-1.5 rounded-md bg-[#1a1a1a] border-2 border-transparent hover:border-[#646cff] transition-colors" onClick={() => dispatch(decrement())}>➖</button></div>
+      </section>
+
+      <div className="relative w-full border-t border-[#333]"></div>
+
+      <section className="flex flex-col lg:flex-row text-left w-full max-w-5xl mx-auto">
+        <div className="flex-1 p-8 border-b lg:border-b-0 lg:border-r border-[#333]">
+          <svg className="w-6 h-6 mb-4" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#documentation-icon"></use>
+          </svg>
+          <h2 className="text-xl font-semibold mb-2">Documentation</h2>
+          <p className="text-gray-400 mb-6">Your questions, answered</p>
+          <ul className="flex flex-wrap gap-2 m-0 p-0 list-none">
+            <li>
+              <a href="https://vite.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <img className="h-4" src={viteLogo} alt="" />
+                Explore Vite
+              </a>
+            </li>
+            <li>
+              <a href="https://react.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <img className="h-4 w-4" src={reactLogo} alt="" />
+                Learn more
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="flex-1 p-8">
+          <svg className="w-6 h-6 mb-4" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#social-icon"></use>
+          </svg>
+          <h2 className="text-xl font-semibold mb-2">Connect with us</h2>
+          <p className="text-gray-400 mb-6">Join the Vite community</p>
+          <ul className="flex flex-wrap gap-2 m-0 p-0 list-none">
+            <li>
+              <a href="https://github.com/vitejs/vite" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://chat.vite.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>
+                Discord
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/vite_js" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>
+                X.com
+              </a>
+            </li>
+            <li>
+              <a href="https://bsky.app/profile/vite.dev" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>
+                Bluesky
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div className="relative w-full border-t border-[#333]"></div>
+      <section className="h-12 lg:h-24"></section>
+    </>
+  )
 }
 
-export default App;
-        `,
-        ts: `
-        
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "./store/store";
-import { decrement, increment } from "./features/counter/counterSlice";
-
-function App() {
-  const count = useSelector((state: RootState) => state.counter.value);
-  const dispatch = useDispatch();
-
-  return (
-    <div
-      className="flex flex-col items-center justify-center"
-      style={{
-        height: "90vh",
-      }}
-    >
-      <div className="flex items-center justify-center">
-        <a className="block" href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a className="block" href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <h3>Tailwind + Redux</h3>
-      <div className="card">
-        <h2 className="mb-4 text-lg">
-          count is <span className="font-bold text-blue-500">{count}</span>
-        </h2>
-        <div className="flex items-center justify-center gap-5">
-          <button onClick={()=>dispatch(increment())}>➕</button>
-          <button onClick={()=>dispatch(decrement())}>➖</button>
-        </div>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  );
-}
-
-export default App;
-
-        `,
-      },
+export default App
+`
+      }
     },
     router_redux: {
-      // path src/main
       main: {
-        ts: `
-import { StrictMode } from "react";
+        ts: `import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
@@ -802,10 +1057,8 @@ createRoot(document.getElementById("root")!).render(
       </BrowserRouter>
     </Provider>
   </StrictMode>
-);
-      `,
-        js: `
-import { StrictMode } from "react";
+);`,
+        js: `import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
@@ -821,15 +1074,9 @@ createRoot(document.getElementById("root")).render(
       </BrowserRouter>
     </Provider>
   </StrictMode>
-);
-      `,
+);`
       },
-      App: `import {
-  Link,
-  Route,
-  Routes,
-  useLocation
-} from "react-router-dom";
+      App: `import { Link, Route, Routes, useLocation } from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
 
@@ -837,52 +1084,25 @@ const App = () => {
   const location = useLocation();
 
   return (
-    // this is example boiler plate code of routing.
     <div>
-      <nav>
-      <h2 style={{
-        marginBottom:"0.5rem"
-      }}>Navigation Buttons 👇</h2>
-        <div style={{
-        display:"flex",
-        alignItems:"center",
-        justifyContent:"center",
-        gap:"1.25rem"
-      }}>
-            <Link
-              style={{
-                color: "white",
-              }}
-              to="/"
-            >
-          <button style={{
-            borderBottom:
-                  location.pathname === "/" ? "4px solid white" : "none",
-          }}>
-              Home
+      <nav style={{ padding: "16px", borderBottom: "1px solid var(--border)", display: "flex", justifyContent: "center", gap: "16px", backgroundColor: "var(--social-bg)" }}>
+        <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+          <button style={{ borderBottom: location.pathname === "/" ? "2px solid #646cff" : "none", background: "none", border: "none", padding: "8px", color: "white", cursor: "pointer", fontWeight: "bold" }}>
+            Home
           </button>
-            </Link>
-            <Link
-              style={{
-                color: "white",
-                }}
-                to="/about"
-                >
-              <button style={{
-                borderBottom:
-                  location.pathname === "/about" ? "4px solid white" : "none",
-              }}>
-              About
+        </Link>
+        <Link to="/about" style={{ color: "white", textDecoration: "none" }}>
+          <button style={{ borderBottom: location.pathname === "/about" ? "2px solid #646cff" : "none", background: "none", border: "none", padding: "8px", color: "white", cursor: "pointer", fontWeight: "bold" }}>
+            About
           </button>
-            </Link>
-        </div>
+        </Link>
       </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        {/* you can also add Dynamic path like this 👇 */}
-        {/* <Route path=":id" element={<h1>ID Route</h1>} /> */}
-      </Routes>
+      <div style={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
     </div>
   );
 };
@@ -890,195 +1110,233 @@ const App = () => {
 export default App;
 `,
       Home: {
-        ts: `
-        
-        
-import reactLogo from "../assets/react.svg";
-import viteLogo from "/vite.svg";
+        ts: `import reactLogo from '../assets/react.svg'
+import viteLogo from '../assets/vite.svg'
+import heroImg from '../assets/hero.png'
+import '../App.css'
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "../store/store";
 import { decrement, increment } from "../features/counter/counterSlice";
-import '../App.css';
+import type { RootState } from "../store/store";
 
 function Home() {
-  const count = useSelector((state: RootState) => state.counter.value);
+  const count = useSelector((state: any) => state.counter.value);
   const dispatch = useDispatch();
 
   return (
-    <div
-     style={{
-        height:"75vh",
-        display:"flex",
-        flexDirection:"column",
-        alignItems:"center",
-        justifyContent:"center",
-        width:"100%",
-        marginTop:"3rem"
-      }}
-    >
-      <div  style={{
-      display:"flex",
-        flexDirection:"row",
-        alignItems:"center",
-        justifyContent:"center",
-      }}>
-        <a className="block" href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a className="block" href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <h3>Redux + Router enabled!</h3>
-      <div className="card">
-        <h2 style={{
-          marginBottom:"1.125rem",
-          fontSize:"1.3rem",
-          lineHeight:"1.75"
-        }}>
-          count is <span style={{
-            fontWeight:"bold",
-            color:"oklch(62.3% 0.214 259.815)"
-          }}>{count}</span>
-        </h2>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '1rem',
-          }}>
-          <button onClick={()=>dispatch(increment())}>➕</button>
-          <button onClick={()=>dispatch(decrement())}>➖</button>
+    <>
+      <section id="center">
+        <div className="hero">
+          <img src={heroImg} className="base" width="170" height="179" alt="" />
+          <img src={reactLogo} className="framework" alt="React logo" />
+          <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  );
+        <div>
+          <h1>Get started</h1>
+          <p>
+            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+          </p>
+        </div>
+        <h2>count is <span style={{ color: 'var(--accent)' }}>{count}</span></h2>
+        <div style={{ display: 'flex', gap: '10px', marginBottom: '24px' }}><button className="counter" onClick={() => dispatch(increment())}>➕</button><button className="counter" onClick={() => dispatch(decrement())}>➖</button></div>
+      </section>
+
+      <div className="ticks"></div>
+
+      <section id="next-steps">
+        <div id="docs">
+          <svg className="icon" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#documentation-icon"></use>
+          </svg>
+          <h2>Documentation</h2>
+          <p>Your questions, answered</p>
+          <ul>
+            <li>
+              <a href="https://vite.dev/" target="_blank">
+                <img className="logo" src={viteLogo} alt="" />
+                Explore Vite
+              </a>
+            </li>
+            <li>
+              <a href="https://react.dev/" target="_blank">
+                <img className="button-icon" src={reactLogo} alt="" />
+                Learn more
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div id="social">
+          <svg className="icon" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#social-icon"></use>
+          </svg>
+          <h2>Connect with us</h2>
+          <p>Join the Vite community</p>
+          <ul>
+            <li>
+              <a href="https://github.com/vitejs/vite" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#github-icon"></use>
+                </svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://chat.vite.dev/" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#discord-icon"></use>
+                </svg>
+                Discord
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/vite_js" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#x-icon"></use>
+                </svg>
+                X.com
+              </a>
+            </li>
+            <li>
+              <a href="https://bsky.app/profile/vite.dev" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#bluesky-icon"></use>
+                </svg>
+                Bluesky
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div className="ticks"></div>
+      <section id="spacer"></section>
+    </>
+  )
 }
 
-export default Home;
-        
-
-        `,
-        js: `
-        
-        
-import reactLogo from "../assets/react.svg";
-import viteLogo from "/vite.svg";
+export default Home
+`,
+        js: `import reactLogo from '../assets/react.svg'
+import viteLogo from '../assets/vite.svg'
+import heroImg from '../assets/hero.png'
+import '../App.css'
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "../features/counter/counterSlice";
-import '../App.css';
 
 function Home() {
   const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
 
   return (
-    <div
-     style={{
-        height:"75vh",
-        display:"flex",
-        flexDirection:"column",
-        alignItems:"center",
-        justifyContent:"center",
-        width:"100%",
-        marginTop:"3rem"
-      }}
-    >
-      <div  style={{
-      display:"flex",
-        flexDirection:"row",
-        alignItems:"center",
-        justifyContent:"center",
-      }}>
-        <a className="block" href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a className="block" href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <h3>Redux + Router enabled!</h3>
-      <div className="card">
-        <h2 style={{
-          marginBottom:"1.125rem",
-          fontSize:"1.3rem",
-          lineHeight:"1.75"
-        }}>
-          count is <span style={{
-            fontWeight:"bold",
-            color:"oklch(62.3% 0.214 259.815)"
-          }}>{count}</span>
-        </h2>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '1rem',
-          }}>
-          <button onClick={()=>dispatch(increment())}>➕</button>
-          <button onClick={()=>dispatch(decrement())}>➖</button>
+    <>
+      <section id="center">
+        <div className="hero">
+          <img src={heroImg} className="base" width="170" height="179" alt="" />
+          <img src={reactLogo} className="framework" alt="React logo" />
+          <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  );
+        <div>
+          <h1>Get started</h1>
+          <p>
+            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+          </p>
+        </div>
+        <h2>count is <span style={{ color: 'var(--accent)' }}>{count}</span></h2>
+        <div style={{ display: 'flex', gap: '10px', marginBottom: '24px' }}><button className="counter" onClick={() => dispatch(increment())}>➕</button><button className="counter" onClick={() => dispatch(decrement())}>➖</button></div>
+      </section>
+
+      <div className="ticks"></div>
+
+      <section id="next-steps">
+        <div id="docs">
+          <svg className="icon" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#documentation-icon"></use>
+          </svg>
+          <h2>Documentation</h2>
+          <p>Your questions, answered</p>
+          <ul>
+            <li>
+              <a href="https://vite.dev/" target="_blank">
+                <img className="logo" src={viteLogo} alt="" />
+                Explore Vite
+              </a>
+            </li>
+            <li>
+              <a href="https://react.dev/" target="_blank">
+                <img className="button-icon" src={reactLogo} alt="" />
+                Learn more
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div id="social">
+          <svg className="icon" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#social-icon"></use>
+          </svg>
+          <h2>Connect with us</h2>
+          <p>Join the Vite community</p>
+          <ul>
+            <li>
+              <a href="https://github.com/vitejs/vite" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#github-icon"></use>
+                </svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://chat.vite.dev/" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#discord-icon"></use>
+                </svg>
+                Discord
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/vite_js" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#x-icon"></use>
+                </svg>
+                X.com
+              </a>
+            </li>
+            <li>
+              <a href="https://bsky.app/profile/vite.dev" target="_blank">
+                <svg className="button-icon" role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#bluesky-icon"></use>
+                </svg>
+                Bluesky
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div className="ticks"></div>
+      <section id="spacer"></section>
+    </>
+  )
 }
 
-export default Home;
-        
-
-        `,
+export default Home
+`
       },
-      About: `      
-const About = () => {
+      About: `const About = () => {
   return (
-    <div
-      style={{
-        height:"75vh",
-        display:'flex',
-        flexDirection:"column",
-        alignItems:'center',
-        justifyContent:"center"
-      }}
-    >
-        <h1>About Page</h1>
-        <p>This is the about page of the application. And you are in the <span style={{
-            fontWeight:"bold",
-            color:"oklch(62.3% 0.214 259.815)"
-          }}>'/about'</span> route</p>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", flexGrow: 1, padding: "32px", textAlign: "center" }}>
+      <h1 >About Page</h1>
+      <p >This is the about page. You are currently on the <span style={{ color: "var(--accent)", fontWeight: "bold" }}>'/about'</span> route.</p>
     </div>
   )
 }
 
-export default About
-      `,
-      // path: src/store.js or store.ts
+export default About;
+`,
       store: "same as -> redux.store.ts or redux.store.js",
-      // path: src/features/counterSlice.ts or counterSlice.js
-      counter_slice:
-        "same as -> redux.counter_slice.js or redux.counter_slice.ts",
+      counter_slice: "same as -> redux.counter_slice.js or redux.counter_slice.ts"
     },
     tailwind_router_redux: {
       indexCss: "same as -> tailwind.indexCss",
-      App: `import {
-  Link,
-  Route,
-  Routes,
-  useLocation
-} from "react-router-dom";
+      App: `import { Link, Route, Routes, useLocation } from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
 
@@ -1086,197 +1344,239 @@ const App = () => {
   const location = useLocation();
 
   return (
-    // this is example boiler plate code of routing.
-    <div className="max-h-9">
-      <nav>
-      <h2 className="mb-2">Navigation Buttons 👇</h2>
-        <div className="flex align-center justify-center gap-5" >
-            <Link
-              style={{
-                color: "white",
-              }}
-              to="/"
-            >
-          <button style={{
-            borderBottom:
-                  location.pathname === "/" ? "4px solid white" : "none",
-          }}>
-              Home
+    <div className="flex flex-col min-h-screen">
+      <nav className="p-4 border-b border-[#333] flex justify-center gap-4 bg-[#1a1a1a]">
+        <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+          <button style={{ borderBottom: location.pathname === "/" ? "2px solid #646cff" : "none", background: "none", border: "none", padding: "8px", color: "white", cursor: "pointer", fontWeight: "bold" }}>
+            Home
           </button>
-            </Link>
-            <Link
-              style={{
-                color: "white",
-                }}
-                to="/about"
-                >
-              <button style={{
-                borderBottom:
-                  location.pathname === "/about" ? "4px solid white" : "none",
-              }}>
-              About
+        </Link>
+        <Link to="/about" style={{ color: "white", textDecoration: "none" }}>
+          <button style={{ borderBottom: location.pathname === "/about" ? "2px solid #646cff" : "none", background: "none", border: "none", padding: "8px", color: "white", cursor: "pointer", fontWeight: "bold" }}>
+            About
           </button>
-            </Link>
-        </div>
+        </Link>
       </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        {/* you can also add Dynamic path like this 👇 */}
-        {/* <Route path=":id" element={<h1>ID Route</h1>} /> */}
-      </Routes>
+      <div className="flex-grow flex flex-col">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
     </div>
   );
 };
 
 export default App;
 `,
-      // path: src/pages/Home.tsx or Home.jsx
       Home: {
-        ts: `      
-import reactLogo from "../assets/react.svg";
-import viteLogo from "/vite.svg";
+        ts: `import reactLogo from '../assets/react.svg'
+import viteLogo from '../assets/vite.svg'
+import heroImg from '../assets/hero.png'
+import '../App.css'
 import { useDispatch, useSelector } from "react-redux";
+import { decrement, increment } from "../features/counter/counterSlice";
 import type { RootState } from "../store/store";
-import { decrement, increment } from "../features/counter/counterSlice";
-import '../App.css';
-
-function Home() {
-  const count = useSelector((state: RootState) => state.counter.value);
-  const dispatch = useDispatch();
-
-  return (
-    <div
-      className="flex flex-col items-center justify-center w-full"
-      style={{
-        height: "90vh",
-      }}
-    >
-      <div className="flex items-center justify-center">
-        <a className="block" href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a className="block" href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <h3>Tailwind + Redux + Router enabled!</h3>
-      <div className="card">
-        <h2 className="mb-4 text-lg">
-          count is <span className="font-bold text-blue-500">{count}</span>
-        </h2>
-        <div className="flex items-center justify-center gap-5">
-          <button onClick={()=>dispatch(increment())}>➕</button>
-          <button onClick={()=>dispatch(decrement())}>➖</button>
-        </div>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  );
-}
-
-export default Home;
-        `,
-        js: `
-        
-import reactLogo from "../assets/react.svg";
-import viteLogo from "/vite.svg";
-import { useDispatch, useSelector } from "react-redux";
-
-import { decrement, increment } from "../features/counter/counterSlice";
-import '../App.css';
 
 function Home() {
   const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
 
   return (
-    <div
-      className="flex flex-col items-center justify-center w-full"
-      style={{
-        height: "90vh",
-      }}
-    >
-      <div className="flex items-center justify-center">
-        <a className="block" href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a className="block" href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <h3>Tailwind + Redux + Router enabled!</h3>
-      <div className="card">
-        <h2 className="mb-4 text-lg">
-          count is <span className="font-bold text-blue-500">{count}</span>
-        </h2>
-        <div className="flex items-center justify-center gap-5">
-          <button onClick={()=>dispatch(increment())}>➕</button>
-          <button onClick={()=>dispatch(decrement())}>➖</button>
+    <>
+      <section className="flex flex-col gap-6 items-center justify-center flex-grow p-8 text-center">
+        <div className="relative w-[170px] h-[179px] mx-auto">
+          <img src={heroImg} className="absolute inset-x-0 mx-auto z-0" width="170" height="179" alt="" />
+          <img src={reactLogo} className="absolute inset-x-0 mx-auto z-10 top-[34px] h-[28px] drop-shadow-lg" style={{ transform: "perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg) scale(1.4)" }} alt="React logo" />
+          <img src={viteLogo} className="absolute inset-x-0 mx-auto z-0 top-[107px] h-[26px] w-auto drop-shadow-md" style={{ transform: "perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) scale(0.8)" }} alt="Vite logo" />
         </div>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  );
+        <div className="text-center">
+          <h1 className="text-5xl font-bold mb-4">Get started</h1>
+          <p className="text-gray-400">
+            Edit <code className="bg-white/10 px-1 py-0.5 rounded">src/App.jsx</code> and save to test <code className="bg-white/10 px-1 py-0.5 rounded">HMR</code>
+          </p>
+        </div>
+        <h2 className="mb-4 text-lg">count is <span className="font-bold text-[#646cff]">{count}</span></h2>
+        <div className="flex gap-4 mb-6"><button className="px-3 py-1.5 rounded-md bg-[#1a1a1a] border-2 border-transparent hover:border-[#646cff] transition-colors" onClick={() => dispatch(increment())}>➕</button><button className="px-3 py-1.5 rounded-md bg-[#1a1a1a] border-2 border-transparent hover:border-[#646cff] transition-colors" onClick={() => dispatch(decrement())}>➖</button></div>
+      </section>
+
+      <div className="relative w-full border-t border-[#333]"></div>
+
+      <section className="flex flex-col lg:flex-row text-left w-full max-w-5xl mx-auto">
+        <div className="flex-1 p-8 border-b lg:border-b-0 lg:border-r border-[#333]">
+          <svg className="w-6 h-6 mb-4" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#documentation-icon"></use>
+          </svg>
+          <h2 className="text-xl font-semibold mb-2">Documentation</h2>
+          <p className="text-gray-400 mb-6">Your questions, answered</p>
+          <ul className="flex flex-wrap gap-2 m-0 p-0 list-none">
+            <li>
+              <a href="https://vite.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <img className="h-4" src={viteLogo} alt="" />
+                Explore Vite
+              </a>
+            </li>
+            <li>
+              <a href="https://react.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <img className="h-4 w-4" src={reactLogo} alt="" />
+                Learn more
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="flex-1 p-8">
+          <svg className="w-6 h-6 mb-4" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#social-icon"></use>
+          </svg>
+          <h2 className="text-xl font-semibold mb-2">Connect with us</h2>
+          <p className="text-gray-400 mb-6">Join the Vite community</p>
+          <ul className="flex flex-wrap gap-2 m-0 p-0 list-none">
+            <li>
+              <a href="https://github.com/vitejs/vite" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://chat.vite.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>
+                Discord
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/vite_js" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>
+                X.com
+              </a>
+            </li>
+            <li>
+              <a href="https://bsky.app/profile/vite.dev" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>
+                Bluesky
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div className="relative w-full border-t border-[#333]"></div>
+      <section className="h-12 lg:h-24"></section>
+    </>
+  )
 }
 
-export default Home;
+export default Home
+`,
+        js: `import reactLogo from '../assets/react.svg'
+import viteLogo from '../assets/vite.svg'
+import heroImg from '../assets/hero.png'
+import '../App.css'
+import { useDispatch, useSelector } from "react-redux";
+import { decrement, increment } from "../features/counter/counterSlice";
 
-        `,
-      },
-      //path: src/pages/About.tsx or About.jsx
-      About: `      
-const About = () => {
+function Home() {
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+
   return (
-    <div
-      className="flex flex-col items-center justify-center"
-      style={{
-        height:"75vh",
-      }}
-    >
-        <h1>About Page</h1>
-        <p>This is the about page of the application. And you are in the <span className="font-bold text-blue-500">'/about'</span> route</p>
+    <>
+      <section className="flex flex-col gap-6 items-center justify-center flex-grow p-8 text-center">
+        <div className="relative w-[170px] h-[179px] mx-auto">
+          <img src={heroImg} className="absolute inset-x-0 mx-auto z-0" width="170" height="179" alt="" />
+          <img src={reactLogo} className="absolute inset-x-0 mx-auto z-10 top-[34px] h-[28px] drop-shadow-lg" style={{ transform: "perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg) scale(1.4)" }} alt="React logo" />
+          <img src={viteLogo} className="absolute inset-x-0 mx-auto z-0 top-[107px] h-[26px] w-auto drop-shadow-md" style={{ transform: "perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) scale(0.8)" }} alt="Vite logo" />
+        </div>
+        <div className="text-center">
+          <h1 className="text-5xl font-bold mb-4">Get started</h1>
+          <p className="text-gray-400">
+            Edit <code className="bg-white/10 px-1 py-0.5 rounded">src/App.jsx</code> and save to test <code className="bg-white/10 px-1 py-0.5 rounded">HMR</code>
+          </p>
+        </div>
+        <h2 className="mb-4 text-lg">count is <span className="font-bold text-[#646cff]">{count}</span></h2>
+        <div className="flex gap-4 mb-6"><button className="px-3 py-1.5 rounded-md bg-[#1a1a1a] border-2 border-transparent hover:border-[#646cff] transition-colors" onClick={() => dispatch(increment())}>➕</button><button className="px-3 py-1.5 rounded-md bg-[#1a1a1a] border-2 border-transparent hover:border-[#646cff] transition-colors" onClick={() => dispatch(decrement())}>➖</button></div>
+      </section>
+
+      <div className="relative w-full border-t border-[#333]"></div>
+
+      <section className="flex flex-col lg:flex-row text-left w-full max-w-5xl mx-auto">
+        <div className="flex-1 p-8 border-b lg:border-b-0 lg:border-r border-[#333]">
+          <svg className="w-6 h-6 mb-4" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#documentation-icon"></use>
+          </svg>
+          <h2 className="text-xl font-semibold mb-2">Documentation</h2>
+          <p className="text-gray-400 mb-6">Your questions, answered</p>
+          <ul className="flex flex-wrap gap-2 m-0 p-0 list-none">
+            <li>
+              <a href="https://vite.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <img className="h-4" src={viteLogo} alt="" />
+                Explore Vite
+              </a>
+            </li>
+            <li>
+              <a href="https://react.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <img className="h-4 w-4" src={reactLogo} alt="" />
+                Learn more
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="flex-1 p-8">
+          <svg className="w-6 h-6 mb-4" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#social-icon"></use>
+          </svg>
+          <h2 className="text-xl font-semibold mb-2">Connect with us</h2>
+          <p className="text-gray-400 mb-6">Join the Vite community</p>
+          <ul className="flex flex-wrap gap-2 m-0 p-0 list-none">
+            <li>
+              <a href="https://github.com/vitejs/vite" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://chat.vite.dev/" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>
+                Discord
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/vite_js" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>
+                X.com
+              </a>
+            </li>
+            <li>
+              <a href="https://bsky.app/profile/vite.dev" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-shadow text-white no-underline">
+                <svg className="h-4 w-4" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>
+                Bluesky
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div className="relative w-full border-t border-[#333]"></div>
+      <section className="h-12 lg:h-24"></section>
+    </>
+  )
+}
+
+export default Home
+`
+      },
+      About: `const About = () => {
+  return (
+    <div className="flex flex-col items-center justify-center flex-grow p-8 text-center">
+      <h1 className="text-4xl font-bold mb-4">About Page</h1>
+      <p className="text-gray-400">This is the about page. You are currently on the <span className="text-[#646cff] font-bold">'/about'</span> route.</p>
     </div>
   )
 }
 
-export default About
-      `,
-      // path src/main
+export default About;
+`,
       main: {
-        js: `
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.jsx";
-import { Provider } from "react-redux";
-import { store } from "./store/store.js";
-import { BrowserRouter } from "react-router-dom";
-
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
-  </StrictMode>
-);
-      `,
-        ts: `
-import { StrictMode } from "react";
+        ts: `import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
@@ -1292,14 +1592,27 @@ createRoot(document.getElementById("root")!).render(
       </BrowserRouter>
     </Provider>
   </StrictMode>
-);
-      `,
+);`,
+        js: `import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { Provider } from "react-redux";
+import { store } from "./store/store.js";
+import { BrowserRouter } from "react-router-dom";
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </StrictMode>
+);`
       },
-      // path: src/store.js or store.ts
       store: "same as -> redux.store.ts or redux.store.js",
-      // path: src/features/counterSlice.ts or counterSlice.js
-      counter_slice:
-        "same as -> redux.counter_slice.js or redux.counter_slice.ts",
-    },
-  },
+      counter_slice: "same as -> redux.counter_slice.js or redux.counter_slice.ts"
+    }
+  }
 };
